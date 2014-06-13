@@ -1,0 +1,22 @@
+<h1><%= @outline.title %></h1>
+
+<div class="steps">
+  <% @outline.ordered_steps.each do |step| %>
+    <div class="step">
+      <div class="number">
+        <%= step.number %>
+      </div>
+      <div class="text">
+        <%= step.step %>
+      </div>
+    </div>
+  <% end  %>
+  <div class="add-step">
+    <%= form_for [@outline, @step] do |f| %>
+      <%= f.hidden_field :outline_id, value: @outline.id %>
+      <%= f.text_field :step, value: '', placeholder: 'New step' %>
+      <%= f.number_field :time, placeholder: 'How long?' %>
+      <%= f.submit 'Add Step' %>
+    <% end %>
+  </div>
+</div>

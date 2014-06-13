@@ -1,0 +1,15 @@
+<div class="create-outline">
+  <form action="/outlines" method="POST">
+    <%= token_tag %>
+    <input name="outline[title]" type="text" value="" placeholder="New outline's name" required/>
+    <input type="submit" value="Create New Outline"/>
+  </form>
+</div>
+
+<div class="outlines">
+  <% @outlines.each do |outline| %>
+    <div class="outline">
+      <div class="title"><%= link_to outline.title, outline_path(outline) %></div>
+    </div>
+  <% end %>
+</div>
