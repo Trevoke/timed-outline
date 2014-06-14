@@ -1,14 +1,20 @@
 <h1><%= @outline.title %></h1>
 
+<button class='start-timer'>Start!</button>
+
 <div class="steps">
   <% @outline.ordered_steps.each do |step| %>
     <div class="step">
-      <div class="number">
+      <div class="transitionable number">
         <%= step.number %>
       </div>
-      <div class="text">
+      <div class="transitionable text">
         <%= step.step %>
       </div>
+      <div class="transitionable time">
+        - <span class='transitionable number'><%= step.time %></span>min
+      </div>
+
     </div>
   <% end  %>
   <div class="add-step">
@@ -20,3 +26,10 @@
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+ $(function() {
+   $('.start-timer').on('click', function(){
+     start
+   });
+</script>

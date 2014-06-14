@@ -14,3 +14,28 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function setNewGradient(step, start, end) {
+    var now = Date.now() / 1000;
+    var percentage = ((now - start) / (end - start)) * 100;
+    var gradient = "-webkit-linear-gradient(top, #199dff " + percentage + "%, #151515 " + percentage + "%)";
+
+    $(step).find('.transitionable').css(
+        {
+            'background': gradient,
+            '-webkit-background-clip': 'text',
+            '-webkit-text-fill-color': 'transparent'
+        }
+    );
+    return percentage;
+}
+
+function transitionStep(step) {
+    if(typeof step === undefined) return;
+    var step = $(step);
+    var timeSpan = parseInt($(step).find('.time .number').text()) * 60;
+    var start = Date.now() / 1000;
+    var end = start + timeSpan;
+    var updateInterval = setInterval(setNewGradient, 100, step, start, end);
+    return updateInterval;
+}

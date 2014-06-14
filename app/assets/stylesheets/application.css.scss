@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+h1 {
+    font-size: 3em;
+}
+
+.step {
+    color: #151515;
+    font-size: 2em;
+    font-family: monospace;
+
+    .number, .text, .time {
+        display: inline-block;
+        line-height: 0.9;
+        box-sizing: border-box;
+        padding: 0px;
+        margin: 0px;
+    }
+}
