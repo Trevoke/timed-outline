@@ -9,10 +9,10 @@
         <%= step.number %>
       </div>
       <div class="transitionable text">
-        <%= step.step %>
+        | <%= step.step %>
       </div>
       <div class="transitionable time">
-        - <span class='transitionable number'><%= step.time %></span>min
+        - <span class='transitionable length'><%= step.time %></span>min
       </div>
 
     </div>
@@ -30,6 +30,7 @@
 <script type="text/javascript">
  $(function() {
    $('.start-timer').on('click', function(){
-     start
+     startTimer();
    });
+ });
 </script>
