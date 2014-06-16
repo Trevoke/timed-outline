@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.1'
 
 gem 'rails', '4.1.1'
 gem 'sass-rails', '~> 4.0.3'
@@ -16,6 +17,7 @@ gem 'unicorn'
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development do
