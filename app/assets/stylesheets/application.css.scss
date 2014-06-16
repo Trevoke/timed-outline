@@ -15,12 +15,21 @@
  */
 
 h1 {
-    font-size: 3em;
+    width: 200px;
+    margin: auto;
+}
+
+.controls {
+    width: 200px;
+    margin: auto;
+    button {
+        font-size: 1em;
+    }
 }
 
 .step {
     color: #151515;
-    font-size: 2em;
+    font-size: 3em;
     font-family: monospace;
 
     .number, .text, .time {

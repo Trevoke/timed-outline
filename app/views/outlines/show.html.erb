@@ -1,6 +1,8 @@
 <h1><%= @outline.title %></h1>
 
-<button class='start-timer'>Start!</button>
+<div class='controls'>
+  <button class='start-timer'>Start!</button>
+</div>
 
 <div class="steps">
   <% @outline.ordered_steps.each do |step| %>
@@ -20,8 +22,8 @@
   <div class="add-step">
     <%= form_for [@outline, @step] do |f| %>
       <%= f.hidden_field :outline_id, value: @outline.id %>
-      <%= f.text_field :step, value: '', placeholder: 'New step' %>
-      <%= f.number_field :time, placeholder: 'How long?' %>
+      <%= f.text_field :step, placeholder: 'Step description' %>
+      <%= f.number_field :time, placeholder: 'Minutes' %>
       <%= f.submit 'Add Step' %>
     <% end %>
   </div>
@@ -29,8 +31,6 @@
 
 <script type="text/javascript">
  $(function() {
-   $('.start-timer').on('click', function(){
-     startTimer();
-   });
+   $('.start-timer').on('click', startTimer)
  });
 </script>
