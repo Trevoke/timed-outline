@@ -1,5 +1,5 @@
 class AddTimeToStep < ActiveRecord::Migration
   def change
-    add_column :steps, :time, :integer_unsigned
+    add_column :steps, :time, :integer
   end
 end
