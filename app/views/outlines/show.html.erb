@@ -4,6 +4,12 @@
   <button class='start-timer'>Start!</button>
 </div>
 
+<div class='clock'>
+    <svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100px" height="100px">
+      <circle cx="50" cy="50" r="20" fill="#151515" stroke="#151515"/>
+    </svg>
+</div>
+
 <div class="steps">
   <% @outline.ordered_steps.each do |step| %>
     <div class="step">
@@ -11,7 +17,7 @@
         <%= step.number %>
       </div>
       <div class="transitionable text">
-        | <%= step.step %>
+        <%= step.step %>
       </div>
       <div class="transitionable time">
         - <span class='transitionable length'><%= step.time %></span>min
@@ -31,6 +37,6 @@
 
 <script type="text/javascript">
  $(function() {
-   $('.start-timer').on('click', startTimer)
+   $('.start-timer').on('click', startTimer);
  });
 </script>

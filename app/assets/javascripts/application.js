@@ -16,43 +16,45 @@
 //= require_tree .
 
 function startTimer() {
-    transitionStep(orderedSteps()[0]);
-}
-
-function orderedSteps() {
-    return $('.step').sort(function(a, b) {
-        var num1 = $(a).find('.number').text();
-        var num2 = $(b).find('.number').text();
-        return num1 > num2;
-    });
+  transitionStep(orderedSteps()[0]);
+  var circleTime = new circleTimer().start();
 }
 
 function transitionStep(step) {
-    if(typeof step === 'undefined') return;
-    var timeSpan = parseInt($(step).find('.time .length').text()) * 60;
-    var start = Date.now() / 1000;
-    var end = start + timeSpan;
-    var updateInterval = setInterval(setNewGradient, 100, step, start, end);
-    setTimeout(function() {
-        clearInterval(updateInterval);
-        var currentStep = parseInt($(step).find('.number').text());
-        var nextStep = $('.step .number:contains(' + (currentStep + 1) + ')')[0];
-        transitionStep($(nextStep).parent('.step'));
-    }, timeSpan * 1000);
-    return updateInterval;
+  if(typeof step === 'undefined') return;
+  var timeSpan = parseInt($(step).find('.time .length').text()) * 60;
+  var start = Date.now() / 1000;
+  var end = start + timeSpan;
+  var updateInterval = setInterval(setNewGradient, 100, step, start, end);
+  setTimeout(function() {
+    clearInterval(updateInterval);
+    var currentStep = parseInt($(step).find('.number').text());
+    var nextStep = $('.step .number:contains(' + (currentStep + 1) + ')')[0];
+    transitionStep($(nextStep).parent('.step'));
+  }, timeSpan * 1000);
+  return updateInterval;
 }
 
 function setNewGradient(step, start, end) {
-    var now = Date.now() / 1000;
-    var percentage = ((now - start) / (end - start)) * 100;
-    var gradient = "-webkit-linear-gradient(top, #199dff " + percentage + "%, #151515 " + percentage + "%)";
+  var now = Date.now() / 1000;
+  var percentage = ((now - start) / (end - start)) * 100;
+  var gradient = "-webkit-linear-gradient(top, #199dff " + percentage + "%, #151515 " + percentage + "%)";
 
-    $(step).find('.transitionable').css(
-        {
-            'background': gradient,
-            '-webkit-background-clip': 'text',
-            '-webkit-text-fill-color': 'transparent'
-        }
-    );
-    return percentage;
+  $(step).find('.transitionable').css(
+    {
+      'background': gradient,
+      '-webkit-background-clip': 'text',
+      '-webkit-text-fill-color': 'transparent'
+    }
+  );
+  return percentage;
+}
+
+function orderedSteps() {
+  return $('.step').sort(
+    function(a, b) {
+      var num1 = $(a).find('.number').text();
+      var num2 = $(b).find('.number').text();
+      return num1 > num2;
+    });
 }
