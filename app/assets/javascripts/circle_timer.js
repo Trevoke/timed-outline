@@ -29,7 +29,7 @@ circleTimer.prototype = {
   fillCircleSlice: function fillCircleSlice() {
     var increment = 2;
     var center = 50;
-    var radius = 20.55;
+    var radius = 35;
     this.angle = this.angle - this.degToRad(increment);
     var newX = center + radius * Math.cos(this.angle);
     var newY = center + radius * Math.sin(this.angle);

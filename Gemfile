@@ -23,6 +23,7 @@ end
 group :development do
   gem 'sqlite3'
   gem 'spring'
+  gem 'guard-livereload'
 end
 
 group :development, :test do
