@@ -21,7 +21,9 @@
       <div class="transitionable time">
         - <span class='transitionable length'><%= step.time %></span>min
       </div>
-
+      <div class='delete'>
+        <%= link_to 'X', outline_step_path(@outline, step), method: :delete, remote: true %>
+      </div>
     </div>
   <% end  %>
   <div class="add-step">
@@ -37,5 +39,8 @@
 <script type="text/javascript">
  $(function() {
    $('.start-timer').on('click', startTimer);
+   $('a[data-method="delete"]').on('ajax:success', function(e){
+     $(e.target).parents('.step').remove();
+   });
  });
 </script>

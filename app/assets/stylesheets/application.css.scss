@@ -40,11 +40,16 @@ body {
     font-size: 3em;
     font-family: monospace;
 
-    .number, .text, .time {
+    .number, .text, .time, .delete {
         display: inline-block;
-        line-height: 0.9;
-        box-sizing: border-box;
-        padding: 0px;
-        margin: 0px;
+    }
+
+    .delete {
+        a {
+            text-decoration: none;
+            color: #f04;
+            background-color: #001f15;
+            border-radius: 10px;
+        }
     }
 }

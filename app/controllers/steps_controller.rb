@@ -5,6 +5,11 @@ class StepsController < ApplicationController
     redirect_to outline_path(outline)
   end
 
+  def destroy
+    Step.destroy params[:id]
+    render json: { id: params[:id] }
+  end
+
   private
 
   def step_params
