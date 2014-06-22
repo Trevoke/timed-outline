@@ -22,6 +22,7 @@ circleTimer.prototype = {
   },
 
   transitionCircleTimer: function transitionCircleTimer(endTime, angle) {
+    this.fillCircleSlice();
     var updateInterval = setInterval(this.fillCircleSlice.bind(this), this.totalTime / 180);
     setTimeout(function() { clearInterval(updateInterval) }, this.totalTime);
   },
