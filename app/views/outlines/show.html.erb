@@ -26,14 +26,14 @@
       </div>
     </div>
   <% end  %>
-  <div class="add-step">
-    <%= form_for [@outline, @step] do |f| %>
-      <%= f.hidden_field :outline_id, value: @outline.id %>
-      <%= f.text_field :step, placeholder: 'Step description', required: true %>
-      <%= f.number_field :time, placeholder: 'Minutes', required: true, min: 1, step: 0.1 %>
-      <%= f.submit 'Add Step' %>
-    <% end %>
-  </div>
+</div>
+<div class="add-step">
+  <%= form_for [@outline, @step] do |f| %>
+    <%= f.hidden_field :outline_id, value: @outline.id %>
+    <%= f.text_field :step, placeholder: 'Step description', required: true %>
+    <%= f.number_field :time, placeholder: 'Minutes', required: true, min: 1, step: 0.1 %>
+    <%= f.submit 'Add Step' %>
+  <% end %>
 </div>
 
 <script type="text/javascript">
