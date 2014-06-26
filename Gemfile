@@ -30,4 +30,5 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'jasmine-rails'
+  gem 'jasmine-jquery-rails'
 end

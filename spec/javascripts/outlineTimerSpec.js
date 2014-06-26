@@ -1,6 +1,6 @@
 describe("outline timer", function() {
   it("returns the steps ordered by step number", function() {
-    // set fixtures
+    loadFixtures('fixtures/outline.html');
     expect(true).toBe(true);
   });
 });

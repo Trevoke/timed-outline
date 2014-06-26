@@ -51,10 +51,11 @@ function setNewGradient(step, start, end) {
 }
 
 function orderedSteps() {
-  return $('.step').sort(
+  var steps = $('.step').sort(
     function(a, b) {
-      var num1 = $(a).find('.number').text();
-      var num2 = $(b).find('.number').text();
-      return num1 > num2;
+      var num1 = parseInt($(a).find('.number').text());
+      var num2 = parseInt($(b).find('.number').text());
+      return num1 - num2;
     });
+  return steps;
 }
