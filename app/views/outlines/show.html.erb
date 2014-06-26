@@ -13,7 +13,7 @@
   <% @outline.ordered_steps.each do |step| %>
     <div class="step">
       <div class="transitionable number">
-        <%= step.number %>
+        <%= step.number.to_s.rjust(@outline.ordered_steps.map(&:number).max.to_s.size, '0') %>
       </div>
       <div class="transitionable text">
         <%= step.step %>
