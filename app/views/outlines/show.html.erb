@@ -37,6 +37,11 @@
 </div>
 
 <script type="text/javascript">
+ function startTimer() {
+   new circleTimer().start();
+   new timedOutline().start();
+ }
+
  $(function() {
    $('.start-timer').on('click', startTimer);
    $('a[data-method="delete"]').on('ajax:success', function(e){

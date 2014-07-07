@@ -1,6 +1,7 @@
 function circleTimer() {
   this.angle = this.degToRad(-90);
   this.totalTime = this.findTotalTime() * 60 * 1000;
+  this.radianIncrement = this.degToRad(2);
 }
 
 circleTimer.prototype = {
@@ -28,10 +29,9 @@ circleTimer.prototype = {
   },
 
   fillCircleSlice: function fillCircleSlice() {
-    var increment = 2;
     var center = 50;
     var radius = 35;
-    this.angle = this.angle - this.degToRad(increment);
+    this.angle = this.angle - this.radianIncrement;
     var newX = center + radius * Math.cos(this.angle);
     var newY = center + radius * Math.sin(this.angle);
     var path = "<path d='M50, 50 L" + newX + "," + newY + "z'";
