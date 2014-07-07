@@ -41,7 +41,7 @@ timedOutline.prototype = {
       function(a, b) {
         var num1 = $(a).find('.number').text();
         var num2 = $(b).find('.number').text();
-        return num1 > num2;
+        return num1 - num2;
       });
   }
 };

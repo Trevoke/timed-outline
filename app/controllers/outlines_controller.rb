@@ -14,7 +14,7 @@ class OutlinesController < ApplicationController
 
   def show
     @outline = Outline.find params.fetch(:id)
-    @step = Step.new
+    @step = Step.new()
   end
 
   private
