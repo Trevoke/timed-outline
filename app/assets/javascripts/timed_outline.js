@@ -12,13 +12,13 @@ timedOutline.prototype = {
     var timeSpan = parseInt($(step).find('.time .length').text()) * 60;
     var start = Date.now() / 1000;
     var end = start + timeSpan;
-    var updateInterval = setInterval(this.setNewGradient, 100, step, start, end);
+    var updateInterval = setInterval(this.setNewGradient.bind(this), 100, step, start, end);
     setTimeout(function() {
       clearInterval(updateInterval);
       var currentStep = parseInt($(step).find('.number').text());
       var nextStep = $('.step .number:contains(' + (currentStep + 1) + ')')[0];
       this.transitionStep($(nextStep).parent('.step'));
-    }, timeSpan * 1000);
+    }.bind(this), timeSpan * 1000);
   },
 
   setNewGradient: function setNewGradient(step, start, end) {
