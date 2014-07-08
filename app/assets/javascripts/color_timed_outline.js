@@ -1,7 +1,7 @@
-function timedOutline() {
+function colorTimedOutline() {
 }
 
-timedOutline.prototype = {
+colorTimedOutline.prototype = {
   start: function start() {
     this.transitionStep(this.orderedSteps()[0]);
     return this;

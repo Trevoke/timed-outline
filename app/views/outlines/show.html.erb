@@ -21,6 +21,7 @@
       <div class="transitionable time">
         - <span class='transitionable length'><%= step.time %></span>min
       </div>
+      <div class='time-countdown'></div>
     </div>
   <% end  %>
 </div>
@@ -36,7 +37,8 @@
 <script type="text/javascript">
  function startTimer() {
    new circleTimer().start();
-   new timedOutline().start();
+   new colorTimedOutline().start();
+   new numberTimedOutline().start();
  }
 
  $(function() {
