@@ -14,11 +14,12 @@ timedOutline.prototype = {
     var end = start + timeSpan;
     var updateInterval = setInterval(this.setNewGradient.bind(this), 100, step, start, end);
     setTimeout(function() {
-      clearInterval(updateInterval);
-      var currentStep = parseInt($(step).find('.number').text());
-      var nextStep = $('.step .number:contains(' + (currentStep + 1) + ')')[0];
-      this.transitionStep($(nextStep).parent('.step'));
-    }.bind(this), timeSpan * 1000);
+                 clearInterval(updateInterval);
+                 var currentStep = parseInt($(step).data('order'));
+                 //TODO maybe just a sorted array and I go through the array, instead of finding the next DOM element every time?
+                 var nextStep = $('.step[data-order="' + (currentStep + 1) + '"]')[0]
+                 this.transitionStep($(nextStep));
+               }.bind(this), timeSpan * 1000);
   },
 
   setNewGradient: function setNewGradient(step, start, end) {
@@ -38,9 +39,9 @@ timedOutline.prototype = {
 
   orderedSteps: function orderedSteps() {
     return $('.step').sort(
-      function(a, b) {
-        var num1 = $(a).find('.number').text();
-        var num2 = $(b).find('.number').text();
+      function(step1, step2) {
+        var num1 = parseInt($(step1).data('order'));
+        var num2 = parseInt($(step2).data('order'));
         return num1 - num2;
       });
   }

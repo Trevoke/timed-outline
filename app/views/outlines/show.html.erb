@@ -11,18 +11,15 @@
 
 <div class="steps">
   <% @outline.ordered_steps.each do |step| %>
-    <div class="step">
-      <div class="transitionable number">
-        <%= step.number.to_s.rjust(@outline.ordered_steps.map(&:number).max.to_s.size, '0') %>
+    <div class="step" data-order="<%= step.number %>">
+      <div class='delete'>
+        <%= link_to 'X', outline_step_path(@outline, step), method: :delete, remote: true, data: { confirm: "Are you sure?" } %>
       </div>
       <div class="transitionable text">
         <%= step.step %>
       </div>
       <div class="transitionable time">
         - <span class='transitionable length'><%= step.time %></span>min
-      </div>
-      <div class='delete'>
-        <%= link_to 'X', outline_step_path(@outline, step), method: :delete, remote: true %>
       </div>
     </div>
   <% end  %>
