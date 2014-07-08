@@ -1,7 +1,7 @@
 function circleTimer() {
-  this.angle = this.degToRad(-90);
+  this.angle = this.degToRad(-90); // Start at top of circle
   this.totalTime = this.findTotalTime() * 60 * 1000;
-  this.radianIncrement = this.degToRad(2);
+  this.radianIncrement = this.degToRad(2); // Pretend it's a real circle
 }
 
 circleTimer.prototype = {
